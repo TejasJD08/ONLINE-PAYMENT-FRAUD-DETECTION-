@@ -4,7 +4,7 @@ Created on Mon Apr 15 11:58:21 2024
 
 @author: tejas
 """
-pip install scikit-learn
+
 import streamlit as st
 import numpy as np
 import pickle
