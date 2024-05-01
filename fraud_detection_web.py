@@ -9,6 +9,14 @@ import numpy as np
 import pickle
 import os
 
+try:
+    import sklearn
+except ImportError:
+    st.write("Installing scikit-learn...")
+    os.system("pip install scikit-learn")
+    import sklearn
+
+
 # Get the current directory of the Streamlit script
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
