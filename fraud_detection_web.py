@@ -10,8 +10,8 @@ import pickle
 
 
 # Load models (replace with your filepaths)
-loaded_rf_model = pickle.load(open(r"C:\Users/tejas/OneDrive/Desktop/fraud_detection/RF_model.sav", 'rb'))
-loaded_knn_model = pickle.load(open(r'C:\Users/tejas/OneDrive/Desktop/fraud_detection/KNN_model.sav', 'rb'))
+loaded_rf_model = pickle.load(open("C:\\Users\\tejas\\OneDrive\\Desktop\\fraud_detection\\RF_model.sav", 'rb'))
+loaded_knn_model = pickle.load(open('C:\\Users\\tejas\\OneDrive\\Desktop\\fraud_detection\\KNN_model.sav', 'rb'))
 
 
 # Title and description
