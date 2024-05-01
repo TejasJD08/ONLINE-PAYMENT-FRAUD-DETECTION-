@@ -8,13 +8,9 @@ import streamlit as st
 import numpy as np
 import pickle
 import os
+pip install scikit-learn
+import scikit-learn
 
-try:
-    import sklearn
-except ImportError:
-    st.write("Installing scikit-learn...")
-    os.system("pip install scikit-learn")
-    import sklearn
 
 
 # Get the current directory of the Streamlit script
