@@ -10,7 +10,7 @@ import numpy as np
 import pickle
 import os
 import sklearn
-from sklearn.impute import SimpleImputer
+
 
 
 # Get the current directory of the Streamlit script
@@ -44,22 +44,12 @@ isFlaggedFraud = st.sidebar.selectbox("Is Flagged Fraud?", [0, 1])
 model_choice = st.sidebar.radio("Select Model:", ("Random Forest", "KNN"))
 
 # Predict function
-# def predict(model, data):
-    #input_data_as_numpy_array = np.asarray(data)
-    #input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
-    #prediction = model.predict(input_data_reshaped)
-    #return prediction[0]
-
-# Create a SimpleImputer instance
-imputer = SimpleImputer(strategy="mean")  # You can choose strategy="median" or "most_frequent" if needed
-
 def predict(model, data):
-    # Impute missing values
-    data_imputed = imputer.fit_transform(data)
-    
-    # Predict using the imputed data
-    prediction = model.predict(data_imputed)
+    input_data_as_numpy_array = np.asarray(data)
+    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+    prediction = model.predict(input_data_reshaped)
     return prediction[0]
+
 
 # Prediction
 if st.sidebar.button("Predict"):
