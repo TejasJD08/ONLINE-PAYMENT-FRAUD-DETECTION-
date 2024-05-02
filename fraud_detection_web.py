@@ -44,11 +44,11 @@ isFlaggedFraud = st.sidebar.selectbox("Is Flagged Fraud?", [0, 1])
 model_choice = st.sidebar.radio("Select Model:", ("Random Forest", "KNN"))
 
 # Predict function
-def predict(model, data):
-    input_data_as_numpy_array = np.asarray(data)
-    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
-    prediction = model.predict(input_data_reshaped)
-    return prediction[0]
+# def predict(model, data):
+    #input_data_as_numpy_array = np.asarray(data)
+    #input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+    #prediction = model.predict(input_data_reshaped)
+    #return prediction[0]
 
 # Create a SimpleImputer instance
 imputer = SimpleImputer(strategy="mean")  # You can choose strategy="median" or "most_frequent" if needed
