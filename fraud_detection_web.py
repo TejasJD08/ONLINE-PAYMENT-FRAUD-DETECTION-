@@ -10,7 +10,7 @@ import numpy as np
 import pickle
 import os
 import sklearn
-
+from sklearn.impute import SimpleImputer
 
 
 # Get the current directory of the Streamlit script
@@ -50,6 +50,17 @@ def predict(model, data):
     prediction = model.predict(input_data_reshaped)
     return prediction[0]
 
+# Create a SimpleImputer instance
+imputer = SimpleImputer(strategy="mean")  # You can choose strategy="median" or "most_frequent" if needed
+
+def predict(model, data):
+    # Impute missing values
+    data_imputed = imputer.fit_transform(data)
+    
+    # Predict using the imputed data
+    prediction = model.predict(data_imputed)
+    return prediction[0]
+
 # Prediction
 if st.sidebar.button("Predict"):
     # Binary encode transaction type
@@ -59,12 +70,12 @@ if st.sidebar.button("Predict"):
         type_encoded = 1
     
     # Combine all features
-    data = (step, type_encoded, amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest,isFlaggedFraud)
+    input_data = (step, type_encoded, amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest,isFlaggedFraud)
     
     if model_choice == "Random Forest":
-        prediction = predict(loaded_rf_model, data)
+        prediction = predict(loaded_rf_model, input_data)
     elif model_choice == "KNN":
-        prediction = predict(loaded_knn_model, data)
+        prediction = predict(loaded_knn_model, input_data)
 
     if prediction == 0:
         st.success("The transaction seems legitimate.")
