@@ -59,12 +59,12 @@ if st.sidebar.button("Predict"):
         type_encoded = 1
     
     # Combine all features
-    input_data_reshaped = (step, type_encoded, amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest,isFlaggedFraud)
+    data = (step, type_encoded, amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest,isFlaggedFraud)
     
     if model_choice == "Random Forest":
-        prediction = predict(loaded_rf_model, input_data_reshaped)
+        prediction = predict(loaded_rf_model, data)
     elif model_choice == "KNN":
-        prediction = predict(loaded_knn_model, input_data_reshaped)
+        prediction = predict(loaded_knn_model, data)
 
     if prediction == 0:
         st.success("The transaction seems legitimate.")
