@@ -37,11 +37,11 @@ knn_model_path = os.path.join(current_dir, "KNN_model.sav")
 loaded_rf_model = pickle.load(open(rf_model_path, 'rb'))
 loaded_knn_model = pickle.load(open(knn_model_path, 'rb'))
 
-st.sidebar.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\payment_fraud.jpg",use_column_width=True)
+st.sidebar.image(r"IMAGES/payment_fraud.jpg",use_column_width=True)
 
 # Define introduction function
 def intro():
-    image = Image.open(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\image.jpg")
+    image = Image.open(r"IMAGES/image.jpg")
     st.image(image, use_column_width=True)
     st.title('Online Payments Fraud Detection')
     st.write('Welcome to the Online Payments Fraud Detection app! This app empowers you with real-time protection against credit card fraud. Our advanced algorithms analyze every transaction, identifying suspicious activity before it impacts your finances. Experience peace of mind knowing Fraud Fortress stands guard 24/7, safeguarding your hard-earned money.')
@@ -71,13 +71,13 @@ def data_plots():
 
     # Display the selected plot
     if plot_selection == 'Correlation Matrix':
-        st.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\confusion_matrix.png")
+        st.image(r"IMAGES/confusion_matrix.png")
     elif plot_selection == 'Fraud vs. Flagged Fraud':
-        st.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\fraud_flagged_counts.png")
+        st.image(r"IMAGES/fraud_flagged_counts.png")
     elif plot_selection == 'Fraudulent Transactions by Type':
-        st.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\fraud_transactiontype.png")
+        st.image(r"IMAGES/fraud_transactiontype.png")
     elif plot_selection == 'Transaction Types':
-        st.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\transaction_types.png")
+        st.image(r"IMAGES/transaction_types.png")
 
 # Prediction page
 def Prediction():
@@ -114,10 +114,10 @@ def Prediction():
 
             if prediction == 0:
                 st.success("The transaction seems legitimate.")
-                st.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\legit_tran.png", width=300,use_column_width=True, output_format='auto')
+                st.image(r"IMAGES/legit_tran.png", width=300,use_column_width=True, output_format='auto')
             else:
                 st.error("The transaction is flagged as potentially fraudulent.")
-                st.image(r"C:\Users\tejas\OneDrive\Desktop\fraud_detection\images\fraud_tran_icon.jpg", width=300,use_column_width=True, output_format='auto')
+                st.image(r"IMAGES/fraud_tran_icon.jpg", width=300,use_column_width=True, output_format='auto')
 # Main app
 def main():
     pages = {
